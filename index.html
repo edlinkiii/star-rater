@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating App</title>
+</head>
+<body>
+    <h2>Rating App</h2>
+
+    <star-rater id="rater-1" onchange="changeHandler(this)"></star-rater>
+
+    <star-rater id="rater-2" on-color="red" current-rating="2"></star-rater>
+
+    <star-rater id="rater-3" on-color="black" max-stars="3"></star-rater>
+
+    <star-rater id="rater-4" on-color="indigo" off-color="aliceblue" max-stars="10"></star-rater>
+
+    <script type="module" src="js/main.js"></script>
+    <script>
+        function changeHandler(el) {
+            const rating = el.getAttribute("current-rating");
+            const id = el.getAttribute("id").replace("rater-","");
+
+            alert(`PUT /api/rating/${id}/${rating}`);
+        }
+    </script>
+</body>
+</html>
